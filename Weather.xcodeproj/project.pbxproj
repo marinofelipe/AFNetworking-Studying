@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		572FCE765FEEC592F042F024 /* libPods-Weather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C2DE3B5B8DAE8DE9FA565B4 /* libPods-Weather.a */; };
+		75E63BB31E3A2F0B00144A3C /* FMDataSourceAndDelegateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E63BB21E3A2F0B00144A3C /* FMDataSourceAndDelegateViewController.m */; };
 		D233D07A16B400EF005212DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D233D07816B400EF005212DE /* InfoPlist.strings */; };
 		D233D07C16B400EF005212DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D233D07B16B400EF005212DE /* main.m */; };
 		D233D08016B400EF005212DE /* WTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D233D07F16B400EF005212DE /* WTAppDelegate.m */; };
@@ -28,6 +29,8 @@
 
 /* Begin PBXFileReference section */
 		6C2DE3B5B8DAE8DE9FA565B4 /* libPods-Weather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Weather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		75E63BB11E3A2F0B00144A3C /* FMDataSourceAndDelegateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDataSourceAndDelegateViewController.h; sourceTree = "<group>"; };
+		75E63BB21E3A2F0B00144A3C /* FMDataSourceAndDelegateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDataSourceAndDelegateViewController.m; sourceTree = "<group>"; };
 		D233D06B16B400EF005212DE /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D233D07716B400EF005212DE /* Weather-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Weather-Info.plist"; sourceTree = "<group>"; };
 		D233D07916B400EF005212DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -131,6 +134,8 @@
 				D233D07F16B400EF005212DE /* WTAppDelegate.m */,
 				D233D09216B4011B005212DE /* WTTableViewController.h */,
 				D233D09316B4011B005212DE /* WTTableViewController.m */,
+				75E63BB11E3A2F0B00144A3C /* FMDataSourceAndDelegateViewController.h */,
+				75E63BB21E3A2F0B00144A3C /* FMDataSourceAndDelegateViewController.m */,
 				D233D07616B400EF005212DE /* Supporting Files */,
 			);
 			path = Weather;
@@ -178,8 +183,13 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = WT;
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Scott Sherwood";
+				TargetAttributes = {
+					D233D06A16B400EF005212DE = {
+						DevelopmentTeam = X9MK4PBNUW;
+					};
+				};
 			};
 			buildConfigurationList = D233D06516B400EF005212DE /* Build configuration list for PBXProject "Weather" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -239,7 +249,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D6175392AF79C4BFF2BA65F7 /* [CP] Embed Pods Frameworks */ = {
@@ -267,6 +277,7 @@
 				D233D07C16B400EF005212DE /* main.m in Sources */,
 				D233D08016B400EF005212DE /* WTAppDelegate.m in Sources */,
 				D233D09416B4011B005212DE /* WTTableViewController.m in Sources */,
+				75E63BB31E3A2F0B00144A3C /* FMDataSourceAndDelegateViewController.m in Sources */,
 				D233D0CC16B405C3005212DE /* WeatherAnimationViewController.m in Sources */,
 				D233D0D216B405D5005212DE /* NSDictionary+weather_package.m in Sources */,
 				D233D0D316B405D5005212DE /* NSDictionary+weather.m in Sources */,
@@ -306,6 +317,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -352,10 +364,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = NO;
+				DEVELOPMENT_TEAM = X9MK4PBNUW;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Weather/Weather-Prefix.pch";
 				INFOPLIST_FILE = "Weather/Weather-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.scott-sherwood.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -368,10 +382,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = NO;
+				DEVELOPMENT_TEAM = X9MK4PBNUW;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Weather/Weather-Prefix.pch";
 				INFOPLIST_FILE = "Weather/Weather-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.scott-sherwood.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

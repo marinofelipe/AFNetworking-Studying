@@ -12,9 +12,14 @@
 #import "WeatherAnimationViewController.h"
 #import "NSDictionary+weather.h"
 #import "NSDictionary+weather_package.h"
+#import "FMDataSourceAndDelegateViewController.h"
+
+
+static NSString * const baseUrlString = @"http://www.raywenderlich.com/demos/weather_sample/";
 
 @interface WTTableViewController ()
 @property(strong) NSDictionary *weather;
+@property(strong, nonatomic) FMDataSourceAndDelegateViewController *dataSourceAndDelegate;
 @end
 
 @implementation WTTableViewController
@@ -32,6 +37,10 @@
 {
     [super viewDidLoad];
     self.navigationController.toolbarHidden = NO;
+    
+    _dataSourceAndDelegate = [FMDataSourceAndDelegateViewController new];
+    self.tableView.delegate = _dataSourceAndDelegate;
+    self.tableView.dataSource = _dataSourceAndDelegate;
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -83,7 +92,7 @@
 
 - (IBAction)jsonTapped:(id)sender
 {
-    
+
 }
 
 - (IBAction)plistTapped:(id)sender
@@ -104,37 +113,6 @@
 - (IBAction)apiTapped:(id)sender
 {
     
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 2;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 0;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"WeatherCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    
-    return cell;
-}
-
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
 }
 
 @end

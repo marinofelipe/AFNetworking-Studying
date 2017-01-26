@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Bricks/BKBaseTableViewDatasourceAndDelegate.h>
 
-@interface FMDataSourceAndDelegateViewController : UIViewController
+
+@interface FMDataSourceAndDelegateViewController : BKBaseTableViewDatasourceAndDelegate
 
 @end
