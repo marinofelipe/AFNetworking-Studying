@@ -6,5 +6,6 @@ target 'Weather' do
   # use_frameworks!
 
   # Pods for Weather
-	pod 'AFNetworking'
+	pod 'AFNetworking', '= 2.0'
+	pod 'Bricks'
 end
