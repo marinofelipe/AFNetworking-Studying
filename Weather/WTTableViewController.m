@@ -92,7 +92,22 @@ static NSString * const baseUrlString = @"http://www.raywenderlich.com/demos/wea
 
 - (IBAction)jsonTapped:(id)sender
 {
-
+    NSString *string = [NSString stringWithFormat:@"%@weather.php?format=json", baseUrlString];
+    NSURL *url = [NSURL URLWithString:string];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:url.absoluteString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSLog(@"JSON: %@", responseObject);
+        
+        _weather = (NSDictionary *)responseObject;
+        self.title = @"JSON Retrieved";
+        [self.tableView reloadData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Weather" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+    }];
 }
 
 - (IBAction)plistTapped:(id)sender
