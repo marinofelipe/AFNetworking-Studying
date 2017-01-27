@@ -14,16 +14,13 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - Bricks (0.1.2)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
-  - Bricks
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  Bricks: c380078646ec88de088a43d2e81a6b26f7e560e7
 
-PODFILE CHECKSUM: f682fb268e84ee359ce9afcecf3aa2c574e6b34b
+PODFILE CHECKSUM: 66c4182d0213260f1f613a1edd72b09922bb28ba
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.1
