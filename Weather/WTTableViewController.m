@@ -12,14 +12,11 @@
 #import "WeatherAnimationViewController.h"
 #import "NSDictionary+weather.h"
 #import "NSDictionary+weather_package.h"
-#import "FMDataSourceAndDelegateViewController.h"
-
 
 static NSString * const baseUrlString = @"http://www.raywenderlich.com/demos/weather_sample/";
 
 @interface WTTableViewController ()
 @property(strong) NSDictionary *weather;
-@property(strong, nonatomic) FMDataSourceAndDelegateViewController *dataSourceAndDelegate;
 @end
 
 @implementation WTTableViewController
@@ -27,9 +24,7 @@ static NSString * const baseUrlString = @"http://www.raywenderlich.com/demos/wea
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
+    if (self) {}
     return self;
 }
 
@@ -38,21 +33,8 @@ static NSString * const baseUrlString = @"http://www.raywenderlich.com/demos/wea
     [super viewDidLoad];
     self.navigationController.toolbarHidden = NO;
     
-    _dataSourceAndDelegate = [FMDataSourceAndDelegateViewController new];
-    self.tableView.delegate = _dataSourceAndDelegate;
-    self.tableView.dataSource = _dataSourceAndDelegate;
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -129,5 +111,50 @@ static NSString * const baseUrlString = @"http://www.raywenderlich.com/demos/wea
 {
     
 }
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (!_weather)
+        return 0;
+    
+    switch (section) {
+        case 0: {
+            return 1;
+        }
+        case 1: {
+            NSArray *upcomingWeather = [self.weather upcomingWeather];
+            return [upcomingWeather count];
+        }
+        default:
+            return 0;
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"WeatherCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    // Configure the cell...
+    
+    
+    return cell;
+}
+
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Navigation logic may go here. Create and push another view controller.
+}
+
 
 @end

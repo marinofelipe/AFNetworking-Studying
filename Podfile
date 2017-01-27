@@ -7,5 +7,4 @@ target 'Weather' do
 
   # Pods for Weather
 	pod 'AFNetworking', '~> 3.1.0'
-	pod 'Bricks'
 end

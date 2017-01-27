@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		572FCE765FEEC592F042F024 /* libPods-Weather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C2DE3B5B8DAE8DE9FA565B4 /* libPods-Weather.a */; };
-		75E63BB31E3A2F0B00144A3C /* FMDataSourceAndDelegateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E63BB21E3A2F0B00144A3C /* FMDataSourceAndDelegateViewController.m */; };
 		D233D07A16B400EF005212DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D233D07816B400EF005212DE /* InfoPlist.strings */; };
 		D233D07C16B400EF005212DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D233D07B16B400EF005212DE /* main.m */; };
 		D233D08016B400EF005212DE /* WTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D233D07F16B400EF005212DE /* WTAppDelegate.m */; };
@@ -29,8 +28,6 @@
 
 /* Begin PBXFileReference section */
 		6C2DE3B5B8DAE8DE9FA565B4 /* libPods-Weather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Weather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		75E63BB11E3A2F0B00144A3C /* FMDataSourceAndDelegateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDataSourceAndDelegateViewController.h; sourceTree = "<group>"; };
-		75E63BB21E3A2F0B00144A3C /* FMDataSourceAndDelegateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDataSourceAndDelegateViewController.m; sourceTree = "<group>"; };
 		D233D06B16B400EF005212DE /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D233D07716B400EF005212DE /* Weather-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Weather-Info.plist"; sourceTree = "<group>"; };
 		D233D07916B400EF005212DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -134,8 +131,6 @@
 				D233D07F16B400EF005212DE /* WTAppDelegate.m */,
 				D233D09216B4011B005212DE /* WTTableViewController.h */,
 				D233D09316B4011B005212DE /* WTTableViewController.m */,
-				75E63BB11E3A2F0B00144A3C /* FMDataSourceAndDelegateViewController.h */,
-				75E63BB21E3A2F0B00144A3C /* FMDataSourceAndDelegateViewController.m */,
 				D233D07616B400EF005212DE /* Supporting Files */,
 			);
 			path = Weather;
@@ -277,7 +272,6 @@
 				D233D07C16B400EF005212DE /* main.m in Sources */,
 				D233D08016B400EF005212DE /* WTAppDelegate.m in Sources */,
 				D233D09416B4011B005212DE /* WTTableViewController.m in Sources */,
-				75E63BB31E3A2F0B00144A3C /* FMDataSourceAndDelegateViewController.m in Sources */,
 				D233D0CC16B405C3005212DE /* WeatherAnimationViewController.m in Sources */,
 				D233D0D216B405D5005212DE /* NSDictionary+weather_package.m in Sources */,
 				D233D0D316B405D5005212DE /* NSDictionary+weather.m in Sources */,
