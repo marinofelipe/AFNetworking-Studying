@@ -121,7 +121,8 @@ static NSString * const xmlType = @"xml";
 
 - (void)requestFailure:(NSError *)error
 {
-    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Weather" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alertView show];
 }
 
 #pragma mark - Table view data source
