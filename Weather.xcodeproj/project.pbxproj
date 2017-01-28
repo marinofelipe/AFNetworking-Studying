@@ -16,7 +16,7 @@
 		D233D0CC16B405C3005212DE /* WeatherAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D233D0CB16B405C3005212DE /* WeatherAnimationViewController.m */; };
 		D233D0D216B405D5005212DE /* NSDictionary+weather_package.m in Sources */ = {isa = PBXBuildFile; fileRef = D233D0CF16B405D5005212DE /* NSDictionary+weather_package.m */; };
 		D233D0D316B405D5005212DE /* NSDictionary+weather.m in Sources */ = {isa = PBXBuildFile; fileRef = D233D0D116B405D5005212DE /* NSDictionary+weather.m */; };
-		D53B01C01E3C332000872AB4 /* FMNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = D53B01BF1E3C332000872AB4 /* FMNetworking.m */; };
+		D53B01C01E3C332000872AB4 /* FMNetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D53B01BF1E3C332000872AB4 /* FMNetworkingManager.m */; };
 		F957DCDE185F27ED008DCB3B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F957DCDD185F27ED008DCB3B /* Images.xcassets */; };
 		F957DCE2185F35B8008DCB3B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F957DCE0185F35B8008DCB3B /* Foundation.framework */; };
 		F957DCE4185F35C7008DCB3B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F957DCE3185F35C7008DCB3B /* CoreGraphics.framework */; };
@@ -45,8 +45,8 @@
 		D233D0CF16B405D5005212DE /* NSDictionary+weather_package.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+weather_package.m"; path = "Utils/Extensions/NSDictionary+weather_package.m"; sourceTree = "<group>"; };
 		D233D0D016B405D5005212DE /* NSDictionary+weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+weather.h"; path = "Utils/Extensions/NSDictionary+weather.h"; sourceTree = "<group>"; };
 		D233D0D116B405D5005212DE /* NSDictionary+weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+weather.m"; path = "Utils/Extensions/NSDictionary+weather.m"; sourceTree = "<group>"; };
-		D53B01BE1E3C332000872AB4 /* FMNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMNetworking.h; sourceTree = "<group>"; };
-		D53B01BF1E3C332000872AB4 /* FMNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMNetworking.m; sourceTree = "<group>"; };
+		D53B01BE1E3C332000872AB4 /* FMNetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMNetworkingManager.h; sourceTree = "<group>"; };
+		D53B01BF1E3C332000872AB4 /* FMNetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMNetworkingManager.m; sourceTree = "<group>"; };
 		EF8F19D4AC3DB1209D4BD854 /* Pods-Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weather/Pods-Weather.debug.xcconfig"; sourceTree = "<group>"; };
 		F957DCDD185F27ED008DCB3B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F957DCE0185F35B8008DCB3B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -151,8 +151,8 @@
 		D53B01BD1E3C327500872AB4 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				D53B01BE1E3C332000872AB4 /* FMNetworking.h */,
-				D53B01BF1E3C332000872AB4 /* FMNetworking.m */,
+				D53B01BE1E3C332000872AB4 /* FMNetworkingManager.h */,
+				D53B01BF1E3C332000872AB4 /* FMNetworkingManager.m */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -301,7 +301,7 @@
 				D233D07C16B400EF005212DE /* main.m in Sources */,
 				D233D08016B400EF005212DE /* WTAppDelegate.m in Sources */,
 				D233D09416B4011B005212DE /* WTTableViewController.m in Sources */,
-				D53B01C01E3C332000872AB4 /* FMNetworking.m in Sources */,
+				D53B01C01E3C332000872AB4 /* FMNetworkingManager.m in Sources */,
 				D233D0CC16B405C3005212DE /* WeatherAnimationViewController.m in Sources */,
 				D233D0D216B405D5005212DE /* NSDictionary+weather_package.m in Sources */,
 				D233D0D316B405D5005212DE /* NSDictionary+weather.m in Sources */,

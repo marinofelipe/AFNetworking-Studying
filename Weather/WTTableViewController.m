@@ -12,14 +12,16 @@
 #import "WeatherAnimationViewController.h"
 #import "NSDictionary+weather.h"
 #import "NSDictionary+weather_package.h"
+#import "FMNetworkingManager.h"
 
 static NSString * const baseUrlString = @"http://www.raywenderlich.com/demos/weather_sample/";
 static NSString * const jsonType = @"json";
 static NSString * const plistType = @"plist";
 static NSString * const xmlType = @"xml";
 
-@interface WTTableViewController ()
+@interface WTTableViewController () <FMNetworkingDelegate>
 @property(strong) NSDictionary *weather;
+@property (strong, nonatomic) FMNetworkingManager *fmNetworkingManager;
 @end
 
 @implementation WTTableViewController
@@ -38,6 +40,9 @@ static NSString * const xmlType = @"xml";
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+    _fmNetworkingManager = [FMNetworkingManager new];
+    _fmNetworkingManager.delegate = self;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -80,7 +85,7 @@ static NSString * const xmlType = @"xml";
     NSString *string = [NSString stringWithFormat:@"%@weather.php?format=%@", baseUrlString, jsonType];
     NSURL *url = [NSURL URLWithString:string];
     
-    [self managerDoGetForUrl:url dataType:@"JSON"];
+    [_fmNetworkingManager managerDoGetForUrl:url dataType:jsonType];
 }
 
 - (IBAction)plistTapped:(id)sender
@@ -88,7 +93,7 @@ static NSString * const xmlType = @"xml";
     NSString *string = [NSString stringWithFormat:@"%@weather.php?format=%@", baseUrlString, plistType];
     NSURL *url = [NSURL URLWithString:string];
     
-    [self managerDoGetForUrl:url dataType:@"PLIST"];
+    [_fmNetworkingManager managerDoGetForUrl:url dataType:plistType];
 }
 
 - (IBAction)xmlTapped:(id)sender
@@ -106,27 +111,17 @@ static NSString * const xmlType = @"xml";
     
 }
 
-#pragma mark - AFHTTPSessionManager GET For Url
-- (void)managerDoGetForUrl:(NSURL *)url dataType:(NSString *)dataType
+#pragma mark - Networking Delegate
+- (void)requestSucess:(NSDictionary *)responseObject
 {
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    _weather = responseObject;
+    self.title = [NSString stringWithFormat:@"Data Retrieved"];
+    [self.tableView reloadData];
+}
+
+- (void)requestFailure:(NSError *)error
+{
     
-    if ([dataType isEqualToString:@"PLIST"])
-    {
-        manager.responseSerializer = [AFPropertyListResponseSerializer serializer];
-    }
-    
-    [manager GET:url.absoluteString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        _weather = (NSDictionary *)responseObject;
-        self.title = [NSString stringWithFormat:@"%@ Retrieved", dataType];
-        [self.tableView reloadData];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Weather" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alertView show];
-        
-    }];
 }
 
 #pragma mark - Table view data source
