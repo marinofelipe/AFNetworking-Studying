@@ -40,10 +40,10 @@
 		D233D09316B4011B005212DE /* WTTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTableViewController.m; sourceTree = "<group>"; };
 		D233D0CA16B405C3005212DE /* WeatherAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherAnimationViewController.h; sourceTree = "<group>"; };
 		D233D0CB16B405C3005212DE /* WeatherAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherAnimationViewController.m; sourceTree = "<group>"; };
-		D233D0CE16B405D5005212DE /* NSDictionary+weather_package.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+weather_package.h"; sourceTree = "<group>"; };
-		D233D0CF16B405D5005212DE /* NSDictionary+weather_package.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+weather_package.m"; sourceTree = "<group>"; };
-		D233D0D016B405D5005212DE /* NSDictionary+weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+weather.h"; sourceTree = "<group>"; };
-		D233D0D116B405D5005212DE /* NSDictionary+weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+weather.m"; sourceTree = "<group>"; };
+		D233D0CE16B405D5005212DE /* NSDictionary+weather_package.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+weather_package.h"; path = "Utils/Extensions/NSDictionary+weather_package.h"; sourceTree = "<group>"; };
+		D233D0CF16B405D5005212DE /* NSDictionary+weather_package.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+weather_package.m"; path = "Utils/Extensions/NSDictionary+weather_package.m"; sourceTree = "<group>"; };
+		D233D0D016B405D5005212DE /* NSDictionary+weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+weather.h"; path = "Utils/Extensions/NSDictionary+weather.h"; sourceTree = "<group>"; };
+		D233D0D116B405D5005212DE /* NSDictionary+weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+weather.m"; path = "Utils/Extensions/NSDictionary+weather.m"; sourceTree = "<group>"; };
 		EF8F19D4AC3DB1209D4BD854 /* Pods-Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weather/Pods-Weather.debug.xcconfig"; sourceTree = "<group>"; };
 		F957DCDD185F27ED008DCB3B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F957DCE0185F35B8008DCB3B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -120,11 +120,8 @@
 		D233D07516B400EF005212DE /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				D5BE5C0A1E3AE05400D3DBBB /* Utils */,
 				D233D08716B400EF005212DE /* MainStoryboard.storyboard */,
-				D233D0D016B405D5005212DE /* NSDictionary+weather.h */,
-				D233D0D116B405D5005212DE /* NSDictionary+weather.m */,
-				D233D0CE16B405D5005212DE /* NSDictionary+weather_package.h */,
-				D233D0CF16B405D5005212DE /* NSDictionary+weather_package.m */,
 				D233D0CA16B405C3005212DE /* WeatherAnimationViewController.h */,
 				D233D0CB16B405C3005212DE /* WeatherAnimationViewController.m */,
 				D233D07E16B400EF005212DE /* WTAppDelegate.h */,
@@ -146,6 +143,25 @@
 				D233D07D16B400EF005212DE /* Weather-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D5BE5C0A1E3AE05400D3DBBB /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D5BE5C0B1E3AE05E00D3DBBB /* Extensions */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		D5BE5C0B1E3AE05E00D3DBBB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D233D0D016B405D5005212DE /* NSDictionary+weather.h */,
+				D233D0D116B405D5005212DE /* NSDictionary+weather.m */,
+				D233D0CE16B405D5005212DE /* NSDictionary+weather_package.h */,
+				D233D0CF16B405D5005212DE /* NSDictionary+weather_package.m */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,7 +379,7 @@
 				GCC_PREFIX_HEADER = "Weather/Weather-Prefix.pch";
 				INFOPLIST_FILE = "Weather/Weather-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.scott-sherwood.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.felipemarino.Weather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -381,7 +397,7 @@
 				GCC_PREFIX_HEADER = "Weather/Weather-Prefix.pch";
 				INFOPLIST_FILE = "Weather/Weather-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.scott-sherwood.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.felipemarino.Weather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
