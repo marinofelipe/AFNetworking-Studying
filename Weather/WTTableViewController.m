@@ -14,6 +14,9 @@
 #import "NSDictionary+weather_package.h"
 
 static NSString * const baseUrlString = @"http://www.raywenderlich.com/demos/weather_sample/";
+static NSString * const jsonType = @"json";
+static NSString * const plistType = @"plist";
+static NSString * const xmlType = @"xml";
 
 @interface WTTableViewController ()
 @property(strong) NSDictionary *weather;
@@ -74,27 +77,18 @@ static NSString * const baseUrlString = @"http://www.raywenderlich.com/demos/wea
 
 - (IBAction)jsonTapped:(id)sender
 {
-    NSString *string = [NSString stringWithFormat:@"%@weather.php?format=json", baseUrlString];
+    NSString *string = [NSString stringWithFormat:@"%@weather.php?format=%@", baseUrlString, jsonType];
     NSURL *url = [NSURL URLWithString:string];
     
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager GET:url.absoluteString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        NSLog(@"JSON: %@", responseObject);
-        
-        _weather = (NSDictionary *)responseObject;
-        self.title = @"JSON Retrieved";
-        [self.tableView reloadData];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Weather" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alertView show];
-    }];
+    [self managerDoGetForUrl:url dataType:@"JSON"];
 }
 
 - (IBAction)plistTapped:(id)sender
 {
+    NSString *string = [NSString stringWithFormat:@"%@weather.php?format=%@", baseUrlString, plistType];
+    NSURL *url = [NSURL URLWithString:string];
     
+    [self managerDoGetForUrl:url dataType:@"PLIST"];
 }
 
 - (IBAction)xmlTapped:(id)sender
@@ -110,6 +104,29 @@ static NSString * const baseUrlString = @"http://www.raywenderlich.com/demos/wea
 - (IBAction)apiTapped:(id)sender
 {
     
+}
+
+#pragma mark - AFHTTPSessionManager GET For Url
+- (void)managerDoGetForUrl:(NSURL *)url dataType:(NSString *)dataType
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    if ([dataType isEqualToString:@"PLIST"])
+    {
+        manager.responseSerializer = [AFPropertyListResponseSerializer serializer];
+    }
+    
+    [manager GET:url.absoluteString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        _weather = (NSDictionary *)responseObject;
+        self.title = [NSString stringWithFormat:@"%@ Retrieved", dataType];
+        [self.tableView reloadData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Weather" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+        
+    }];
 }
 
 #pragma mark - Table view data source
