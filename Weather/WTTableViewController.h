@@ -9,8 +9,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FMNetworkingManager.h"
 
-@interface WTTableViewController : UITableViewController
+
+@interface WTTableViewController : UITableViewController <FMNetworkingDelegate, NSXMLParserDelegate>
 
 // Actions
 - (IBAction)clear:(id)sender;

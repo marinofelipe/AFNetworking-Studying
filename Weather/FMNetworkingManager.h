@@ -10,8 +10,10 @@
 
 @protocol FMNetworkingDelegate <NSObject>
 
+@optional
 - (void)requestSucess:(id) responseObject;
 - (void)requestFailure:(NSError *) error;
+- (void)requestSucessWithXMLResponse:(id) responseObject;
 
 @end
 

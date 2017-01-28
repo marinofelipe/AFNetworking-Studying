@@ -29,5 +29,21 @@
 }
 
 #pragma mark - GET with return as XML
+- (void)managerDoGetReturningResponseAsXMLforUrl:(NSURL *)url
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
+    
+    [manager GET:url.absoluteString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSXMLParser *XMLParser = (NSXMLParser *)responseObject;
+        [XMLParser setShouldProcessNamespaces:YES];
+        [self.delegate requestSucessWithXMLResponse:XMLParser];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        [self.delegate requestFailure:error];
+    }];
+}
 
 @end
