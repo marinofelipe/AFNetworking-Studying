@@ -190,12 +190,12 @@
 {
     CGPoint point = iv.center;
     
-    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationCurveEaseOut
+    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
                          iv.center = CGPointMake(point.x,point.y+75);
                      }
                      completion:^(BOOL finished) {
-                         [UIView animateWithDuration:1 delay:0 options:UIViewAnimationCurveEaseIn
+                         [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseIn
                                           animations:^{
                                               iv.center = CGPointMake(iv.center.x,iv.center.y-75);
                                           }
@@ -209,12 +209,12 @@
 
 - (void)pulseImageView:(UIImageView *)iv
 {
-    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationCurveEaseOut
+    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
                          iv.transform = CGAffineTransformScale(iv.transform, 2, 2);
                      }
                      completion:^(BOOL finished) {
-                         [UIView animateWithDuration:1 delay:0 options:UIViewAnimationCurveEaseIn
+                         [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseIn
                                           animations:^{
                                               iv.transform = CGAffineTransformScale(iv.transform, .5, .5);
                                           }
