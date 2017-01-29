@@ -104,7 +104,7 @@ static NSString * const xmlType = @"xml";
     NSString *string = [NSString stringWithFormat:@"%@weather.php?format=%@", baseUrlString, xmlType];
     NSURL *url = [NSURL URLWithString:string];
     
-//    [_fmNetworkingManager managerDoGetForUrl:url dataType:jsonType];
+    [_fmNetworkingManager managerDoGetReturningResponseAsXMLforUrl:url];
 }
 
 - (IBAction)clientTapped:(id)sender

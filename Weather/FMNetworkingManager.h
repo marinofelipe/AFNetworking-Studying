@@ -22,5 +22,6 @@
 @property(nonatomic,weak) id <FMNetworkingDelegate> delegate;
 
 - (void)managerDoGetForUrl:(NSURL *)url dataType:(NSString *)dataType;
+- (void)managerDoGetReturningResponseAsXMLforUrl:(NSURL *)url;
 
 @end
