@@ -13,6 +13,28 @@ static NSString * const kWorldWeatherOnlineURLString = @"http://api.worldweather
 
 @implementation WeatherHTTPClient
 
++(WeatherHTTPClient *)sharedWeatherHTTPClient
+{
+    static WeatherHTTPClient *_sharedWeatherHTTPClient = nil;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        _sharedWeatherHTTPClient = [[self alloc] initWithBaseURL:[NSURL URLWithString:kWorldWeatherOnlineURLString]];
+    });
+    
+    return _sharedWeatherHTTPClient;
+}
 
+- (instancetype)initWithBaseURL:(NSURL *)url
+{
+    self = [super initWithBaseURL:url];
+    
+    if (self) {
+        self.responseSerializer = [AFJSONResponseSerializer serializer];
+        self.requestSerializer = [AFJSONRequestSerializer serializer];
+    }
+    
+    return self;
+}
 
 @end
