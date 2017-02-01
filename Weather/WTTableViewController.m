@@ -12,6 +12,7 @@
 #import "WeatherAnimationViewController.h"
 #import "NSDictionary+weather.h"
 #import "NSDictionary+weather_package.h"
+#import "UIImageView+AFNetworking.h"
 
 static NSString * const baseUrlString = @"http://www.raywenderlich.com/demos/weather_sample/";
 static NSString * const jsonType = @"json";
@@ -252,7 +253,26 @@ static NSString * const xmlType = @"xml";
     
     cell.textLabel.text = [daysWeather weatherDescription];
     
+    [self loadImageWithUrl:daysWeather.weatherIconURL forCell:cell];
+    
     return cell;
+}
+
+#pragma mark - Load Images For Cells
+- (void)loadImageWithUrl:(NSString *)urlString forCell:(UITableViewCell *)cell
+{
+    NSURL* url = [NSURL URLWithString:urlString];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
+    
+    __weak UITableViewCell *weakCell = cell;
+    
+    [cell.imageView setImageWithURLRequest:request placeholderImage:placeholderImage
+                                   success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
+        
+                                       weakCell.imageView.image = image;
+                                       [weakCell setNeedsLayout];
+                                   } failure:nil];
 }
 
 
