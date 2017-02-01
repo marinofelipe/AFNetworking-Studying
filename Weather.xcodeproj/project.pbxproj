@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		572FCE765FEEC592F042F024 /* libPods-Weather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C2DE3B5B8DAE8DE9FA565B4 /* libPods-Weather.a */; };
+		759D2E411E421FD90070C48E /* WeatherHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 759D2E401E421FD90070C48E /* WeatherHTTPClient.m */; };
 		D233D07A16B400EF005212DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D233D07816B400EF005212DE /* InfoPlist.strings */; };
 		D233D07C16B400EF005212DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D233D07B16B400EF005212DE /* main.m */; };
 		D233D08016B400EF005212DE /* WTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D233D07F16B400EF005212DE /* WTAppDelegate.m */; };
@@ -29,6 +30,8 @@
 
 /* Begin PBXFileReference section */
 		6C2DE3B5B8DAE8DE9FA565B4 /* libPods-Weather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Weather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		759D2E3F1E421FD90070C48E /* WeatherHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherHTTPClient.h; sourceTree = "<group>"; };
+		759D2E401E421FD90070C48E /* WeatherHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherHTTPClient.m; sourceTree = "<group>"; };
 		D233D06B16B400EF005212DE /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D233D07716B400EF005212DE /* Weather-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Weather-Info.plist"; sourceTree = "<group>"; };
 		D233D07916B400EF005212DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -153,6 +156,8 @@
 			children = (
 				D53B01BE1E3C332000872AB4 /* FMNetworkingManager.h */,
 				D53B01BF1E3C332000872AB4 /* FMNetworkingManager.m */,
+				759D2E3F1E421FD90070C48E /* WeatherHTTPClient.h */,
+				759D2E401E421FD90070C48E /* WeatherHTTPClient.m */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -303,6 +308,7 @@
 				D233D09416B4011B005212DE /* WTTableViewController.m in Sources */,
 				D53B01C01E3C332000872AB4 /* FMNetworkingManager.m in Sources */,
 				D233D0CC16B405C3005212DE /* WeatherAnimationViewController.m in Sources */,
+				759D2E411E421FD90070C48E /* WeatherHTTPClient.m in Sources */,
 				D233D0D216B405D5005212DE /* NSDictionary+weather_package.m in Sources */,
 				D233D0D316B405D5005212DE /* NSDictionary+weather.m in Sources */,
 			);
