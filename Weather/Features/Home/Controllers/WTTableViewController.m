@@ -62,7 +62,7 @@ static NSString * const xmlType       = @"xml";
         
         WeatherAnimationViewController *wac = (WeatherAnimationViewController *)segue.destinationViewController;
         
-        wac.rowNumber = indexPath.row;
+        wac.sectionNumber = indexPath.section;
         
         NSDictionary *w;
         switch (indexPath.section) {

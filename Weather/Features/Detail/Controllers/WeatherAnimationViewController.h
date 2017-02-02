@@ -16,7 +16,7 @@
 @property(nonatomic, weak) IBOutlet UIImageView *backgroundImageView;
 @property(nonatomic, weak) IBOutlet UILabel *temperatureLabel;
 @property(nonatomic, strong) NSDictionary *weatherDictionary;
-@property NSUInteger rowNumber;
+@property NSUInteger sectionNumber;
 
 - (IBAction)updateBackgroundImage:(id)sender;
 - (IBAction)deleteBackgroundImage:(id)sender;
