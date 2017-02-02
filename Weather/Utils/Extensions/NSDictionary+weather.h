@@ -25,8 +25,8 @@
 - (NSNumber *)windDirDegree;
 - (NSNumber *)windSpeedKmph;
 - (NSNumber *)windSpeedMiles;
-- (NSString *)weatherDescriptionForRow:(NSUInteger)row;
-- (NSString *)weatherIconURL;
+- (NSString *)weatherDescriptionForSection:(NSUInteger)section;
+- (NSString *)weatherIconURLForSection:(NSUInteger)section;
 - (NSDate *)date;
 - (NSNumber *)tempMaxC;
 - (NSNumber *)tempMaxF;

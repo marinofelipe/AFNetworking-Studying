@@ -40,9 +40,9 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    NSString *desc = [self.weatherDictionary weatherDescriptionForRow:_rowNumber];
+    NSString *desc = [self.weatherDictionary weatherDescriptionForSection:_rowNumber];
     
-    if((self.weatherDictionary)[@"tempMinC"])
+    if((self.weatherDictionary)[@"tempMinC"] || (self.weatherDictionary)[@"data"][@"tempMinC"])
          self.temperatureLabel.text = [NSString stringWithFormat:@"%@ \u00B0c - %@ \u00B0c",
                                        [self.weatherDictionary tempMinC],
                                        [self.weatherDictionary tempMaxC]];

@@ -237,9 +237,9 @@ static NSString * const xmlType       = @"xml";
             break;
     }
 
-    cell.textLabel.text = [daysWeather weatherDescriptionForRow:indexPath.row];
+    cell.textLabel.text = [daysWeather weatherDescriptionForSection:indexPath.section];
     
-    [self loadImageWithUrl:daysWeather.weatherIconURL forCell:cell];
+    [self loadImageWithUrl:[daysWeather weatherIconURLForSection:indexPath.section] forCell:cell];
     
     return cell;
 }
