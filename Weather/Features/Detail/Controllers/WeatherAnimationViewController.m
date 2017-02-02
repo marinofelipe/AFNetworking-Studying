@@ -40,7 +40,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    NSString *desc = [self.weatherDictionary weatherDescription];
+    NSString *desc = [self.weatherDictionary currentWeatherDescription];
     
     if((self.weatherDictionary)[@"tempMinC"])
          self.temperatureLabel.text = [NSString stringWithFormat:@"%@ \u00B0c - %@ \u00B0c",

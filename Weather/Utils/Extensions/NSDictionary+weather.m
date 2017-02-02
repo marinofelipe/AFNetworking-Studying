@@ -101,7 +101,14 @@
     return n;
 }
 
-- (NSString *)weatherDescription
+- (NSString *)currentWeatherDescription
+{
+    NSArray *ar = self[@"weatherDesc"];
+    NSDictionary *dict = ar[0];
+    return dict[@"value"];
+}
+
+- (NSString *)upcomingWeatherDescription
 {
     NSArray *hourly = self[@"hourly"];
     NSDictionary *hr = hourly[0];
