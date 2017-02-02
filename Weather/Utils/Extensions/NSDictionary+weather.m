@@ -103,7 +103,9 @@
 
 - (NSString *)weatherDescription
 {
-    NSArray *ar = self[@"weatherDesc"];
+    NSArray *hourly = self[@"hourly"];
+    NSDictionary *hr = hourly[0];
+    NSArray *ar = hr[@"weatherDesc"];
     NSDictionary *dict = ar[0];
     return dict[@"value"];
 }
