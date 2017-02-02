@@ -47,10 +47,22 @@
     return n;
 }
 
-- (NSNumber *)tempC
+- (NSNumber *)tempCinSection:(NSUInteger)section
 {
-    NSString *cc = self[@"temp_C"];
-    NSNumber *n = @([cc intValue]);
+    NSNumber *n;
+    
+    if (section == 0) {
+        NSString *cc = self[@"temp_C"];
+        n = @([cc intValue]);
+    }
+    else {
+        NSArray *hourly = self[@"hourly"];
+        NSDictionary *hr = hourly[0];
+        NSString *cc = hr[@"tempC"];
+        n = @([cc intValue]);
+    }
+    
+    
     return n;
 }
 
@@ -101,7 +113,7 @@
     return n;
 }
 
-- (NSString *)weatherDescriptionForSection:(NSUInteger)section
+- (NSString *)weatherDescriptionInSection:(NSUInteger)section
 {
     NSDictionary *dict;
     
@@ -121,7 +133,7 @@
     return dict[@"value"];
 }
 
-- (NSString *)weatherIconURLForSection:(NSUInteger)section
+- (NSString *)weatherIconURLInSection:(NSUInteger)section
 {
     NSDictionary *dict;
     
@@ -147,10 +159,22 @@
     return [NSDate date];
 }
 
-- (NSNumber *)tempMaxC
+- (NSNumber *)tempMaxCinSection:(NSUInteger)section
 {
-    NSString *cc = self[@"tempMaxC"];
-    NSNumber *n = @([cc intValue]);
+    NSNumber *n;
+    
+    if (section == 0) {
+        NSString *cc = self[@"tempMaxC"];
+        n = @([cc intValue]);
+    }
+    else {
+        NSArray *hourly = self[@"hourly"];
+        NSDictionary *hr = hourly[0];
+        NSString *cc = hr[@"tempMaxC"];
+        n = @([cc intValue]);
+
+    }
+    
     return n;
 }
 
@@ -161,10 +185,21 @@
     return n;
 }
 
-- (NSNumber *)tempMinC
+- (NSNumber *)tempMinCinSection:(NSUInteger)section
 {
-    NSString *cc = self[@"tempMinC"];
-    NSNumber *n = @([cc intValue]);
+    NSNumber *n;
+    
+    if (section == 0) {
+        NSString *cc = self[@"tempMinC"];
+        n = @([cc intValue]);
+    }
+    else {
+        NSArray *hourly = self[@"hourly"];
+        NSDictionary *hr = hourly[0];
+        NSString *cc = hr[@"tempMinC"];
+        n = @([cc intValue]);
+    }
+    
     return n;
 }
 

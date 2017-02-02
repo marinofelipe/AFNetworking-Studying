@@ -17,7 +17,7 @@
 - (NSDate *)observationTime;
 - (NSNumber *)precipMM;
 - (NSNumber *)pressue;
-- (NSNumber *)tempC;
+- (NSNumber *)tempCinSection:(NSUInteger)section;
 - (NSNumber *)tempF;
 - (NSNumber *)visibility;
 - (NSNumber *)weatherCode;
@@ -25,12 +25,12 @@
 - (NSNumber *)windDirDegree;
 - (NSNumber *)windSpeedKmph;
 - (NSNumber *)windSpeedMiles;
-- (NSString *)weatherDescriptionForSection:(NSUInteger)section;
-- (NSString *)weatherIconURLForSection:(NSUInteger)section;
+- (NSString *)weatherDescriptionInSection:(NSUInteger)section;
+- (NSString *)weatherIconURLInSection:(NSUInteger)section;
 - (NSDate *)date;
-- (NSNumber *)tempMaxC;
+- (NSNumber *)tempMaxCinSection:(NSUInteger)section;
 - (NSNumber *)tempMaxF;
-- (NSNumber *)tempMinC;
+- (NSNumber *)tempMinCinSection:(NSUInteger)section;
 - (NSNumber *)tempMinF;
 
 @end

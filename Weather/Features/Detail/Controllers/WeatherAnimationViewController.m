@@ -1,4 +1,4 @@
-//
+    //
 //  WeatherAnimationViewController.m
 //  Weather
 //
@@ -40,14 +40,14 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    NSString *desc = [self.weatherDictionary weatherDescriptionForSection:_sectionNumber];
+    NSString *desc = [self.weatherDictionary weatherDescriptionInSection:_sectionNumber];
     
-    if((self.weatherDictionary)[@"tempMinC"] || (self.weatherDictionary)[@"data"][@"tempMinC"])
+    if((self.weatherDictionary)[@"tempMinC"] || (self.weatherDictionary)[@"hourly"][0][@"tempMinC"])
          self.temperatureLabel.text = [NSString stringWithFormat:@"%@ \u00B0c - %@ \u00B0c",
-                                       [self.weatherDictionary tempMinC],
-                                       [self.weatherDictionary tempMaxC]];
-    else
-        self.temperatureLabel.text = [NSString stringWithFormat:@"%@ \u00B0c",[self.weatherDictionary tempC]];
+                                       [self.weatherDictionary tempMinCinSection:_sectionNumber],
+                                       [self.weatherDictionary tempMaxCinSection:_sectionNumber]];
+    else    
+        self.temperatureLabel.text = [NSString stringWithFormat:@"%@ \u00B0c",[self.weatherDictionary tempCinSection:_sectionNumber]];
    
     
     self.title = desc;
