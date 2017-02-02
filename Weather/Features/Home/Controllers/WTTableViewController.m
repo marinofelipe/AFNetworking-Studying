@@ -15,17 +15,23 @@
 #import "UIImageView+AFNetworking.h"
 
 static NSString * const baseUrlString = @"http://www.raywenderlich.com/demos/weather_sample/";
-static NSString * const jsonType = @"json";
-static NSString * const plistType = @"plist";
-static NSString * const xmlType = @"xml";
+static NSString * const jsonType      = @"json";
+static NSString * const plistType     = @"plist";
+static NSString * const xmlType       = @"xml";
 
 @interface WTTableViewController ()
+
 @property(strong) NSDictionary *weather;
+
 @property(nonatomic, strong) FMNetworkingManager *fmNetworkingManager;
+
 @property(nonatomic, strong) NSMutableDictionary *currentDictionary;
 @property(nonatomic, strong) NSMutableDictionary *xmlWeather;
 @property(nonatomic, strong) NSString *elementName;
 @property(nonatomic, strong) NSMutableString *outString;
+
+@property(nonatomic, strong) CLLocationManager *locationManager;
+
 @end
 
 @implementation WTTableViewController
@@ -47,6 +53,10 @@ static NSString * const xmlType = @"xml";
     
     _fmNetworkingManager = [FMNetworkingManager new];
     _fmNetworkingManager.delegate = self;
+    
+    _locationManager = [[CLLocationManager alloc] init];
+    _locationManager.delegate = self;
+    [_locationManager requestWhenInUseAuthorization];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -115,10 +125,11 @@ static NSString * const xmlType = @"xml";
 
 - (IBAction)apiTapped:(id)sender
 {
-    
+    [_locationManager startUpdatingLocation];
 }
 
 #pragma mark - Networking Delegate
+
 - (void)requestSucess:(NSDictionary *)responseObject
 {
     _weather = responseObject;
@@ -139,6 +150,7 @@ static NSString * const xmlType = @"xml";
 }
 
 #pragma mark - NSXMLParser Delegate
+
 - (void)parserDidStartDocument:(NSXMLParser *)parser
 {
     _xmlWeather = [NSMutableDictionary dictionary];
@@ -205,6 +217,7 @@ static NSString * const xmlType = @"xml";
     [self.tableView reloadData];
 }
 
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -259,6 +272,7 @@ static NSString * const xmlType = @"xml";
 }
 
 #pragma mark - Load Images For Cells
+
 - (void)loadImageWithUrl:(NSString *)urlString forCell:(UITableViewCell *)cell
 {
     NSURL* url = [NSURL URLWithString:urlString];
@@ -283,5 +297,49 @@ static NSString * const xmlType = @"xml";
     // Navigation logic may go here. Create and push another view controller.
 }
 
+
+#pragma mark - CLLocationManager Delegate
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
+{
+    CLLocation *newLocation = [locations lastObject];
+    
+    if ([newLocation.timestamp timeIntervalSinceNow] > 300) {
+        return;
+    }
+    
+    [_locationManager stopUpdatingLocation];
+    
+    WeatherHTTPClient *weatherHTTPClient = [WeatherHTTPClient sharedWeatherHTTPClient];
+    weatherHTTPClient.delegate = self;
+    [weatherHTTPClient updateWeatherAtLocation:newLocation forNumberOfDays:5];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+                               initWithTitle:@"Error"
+                               message:@"Failed to Get Your Location"
+                               delegate:nil
+                               cancelButtonTitle:@"OK"
+                               otherButtonTitles:nil];
+    [errorAlert show];
+}
+
+
+#pragma mark - Weather Client Delegate Methods
+
+- (void)weatherHTTPClient:(WeatherHTTPClient *)client didUpdateWithWeather:(id)weather
+{
+    _weather = weather;
+    self.title = @"API Updated";
+    [self.tableView reloadData];
+}
+
+- (void)weatherHTTPClient:(WeatherHTTPClient *)client didFailWithError:(NSError *)error
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Weather" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alertView show];
+}
 
 @end

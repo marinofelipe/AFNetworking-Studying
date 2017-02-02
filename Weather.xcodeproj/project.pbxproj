@@ -30,8 +30,8 @@
 
 /* Begin PBXFileReference section */
 		6C2DE3B5B8DAE8DE9FA565B4 /* libPods-Weather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Weather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		759D2E3F1E421FD90070C48E /* WeatherHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherHTTPClient.h; sourceTree = "<group>"; };
-		759D2E401E421FD90070C48E /* WeatherHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherHTTPClient.m; sourceTree = "<group>"; };
+		759D2E3F1E421FD90070C48E /* WeatherHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeatherHTTPClient.h; path = Utils/Networking/WeatherHTTPClient.h; sourceTree = "<group>"; };
+		759D2E401E421FD90070C48E /* WeatherHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeatherHTTPClient.m; path = Utils/Networking/WeatherHTTPClient.m; sourceTree = "<group>"; };
 		D233D06B16B400EF005212DE /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D233D07716B400EF005212DE /* Weather-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Weather-Info.plist"; sourceTree = "<group>"; };
 		D233D07916B400EF005212DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -40,16 +40,16 @@
 		D233D07E16B400EF005212DE /* WTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WTAppDelegate.h; sourceTree = "<group>"; };
 		D233D07F16B400EF005212DE /* WTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WTAppDelegate.m; sourceTree = "<group>"; };
 		D233D08816B400EF005212DE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		D233D09216B4011B005212DE /* WTTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTableViewController.h; sourceTree = "<group>"; };
-		D233D09316B4011B005212DE /* WTTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTableViewController.m; sourceTree = "<group>"; };
-		D233D0CA16B405C3005212DE /* WeatherAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherAnimationViewController.h; sourceTree = "<group>"; };
-		D233D0CB16B405C3005212DE /* WeatherAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherAnimationViewController.m; sourceTree = "<group>"; };
+		D233D09216B4011B005212DE /* WTTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WTTableViewController.h; path = Features/Home/Controllers/WTTableViewController.h; sourceTree = "<group>"; };
+		D233D09316B4011B005212DE /* WTTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WTTableViewController.m; path = Features/Home/Controllers/WTTableViewController.m; sourceTree = "<group>"; };
+		D233D0CA16B405C3005212DE /* WeatherAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeatherAnimationViewController.h; path = Features/Detail/Controllers/WeatherAnimationViewController.h; sourceTree = "<group>"; };
+		D233D0CB16B405C3005212DE /* WeatherAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeatherAnimationViewController.m; path = Features/Detail/Controllers/WeatherAnimationViewController.m; sourceTree = "<group>"; };
 		D233D0CE16B405D5005212DE /* NSDictionary+weather_package.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+weather_package.h"; path = "Utils/Extensions/NSDictionary+weather_package.h"; sourceTree = "<group>"; };
 		D233D0CF16B405D5005212DE /* NSDictionary+weather_package.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+weather_package.m"; path = "Utils/Extensions/NSDictionary+weather_package.m"; sourceTree = "<group>"; };
 		D233D0D016B405D5005212DE /* NSDictionary+weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+weather.h"; path = "Utils/Extensions/NSDictionary+weather.h"; sourceTree = "<group>"; };
 		D233D0D116B405D5005212DE /* NSDictionary+weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+weather.m"; path = "Utils/Extensions/NSDictionary+weather.m"; sourceTree = "<group>"; };
-		D53B01BE1E3C332000872AB4 /* FMNetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMNetworkingManager.h; sourceTree = "<group>"; };
-		D53B01BF1E3C332000872AB4 /* FMNetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMNetworkingManager.m; sourceTree = "<group>"; };
+		D53B01BE1E3C332000872AB4 /* FMNetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMNetworkingManager.h; path = Utils/Networking/FMNetworkingManager.h; sourceTree = "<group>"; };
+		D53B01BF1E3C332000872AB4 /* FMNetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMNetworkingManager.m; path = Utils/Networking/FMNetworkingManager.m; sourceTree = "<group>"; };
 		EF8F19D4AC3DB1209D4BD854 /* Pods-Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weather/Pods-Weather.debug.xcconfig"; sourceTree = "<group>"; };
 		F957DCDD185F27ED008DCB3B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F957DCE0185F35B8008DCB3B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -126,14 +126,11 @@
 		D233D07516B400EF005212DE /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				D50C6D831E42A2AD00FB6490 /* Features */,
 				D5BE5C0A1E3AE05400D3DBBB /* Utils */,
 				D233D08716B400EF005212DE /* MainStoryboard.storyboard */,
-				D233D0CA16B405C3005212DE /* WeatherAnimationViewController.h */,
-				D233D0CB16B405C3005212DE /* WeatherAnimationViewController.m */,
 				D233D07E16B400EF005212DE /* WTAppDelegate.h */,
 				D233D07F16B400EF005212DE /* WTAppDelegate.m */,
-				D233D09216B4011B005212DE /* WTTableViewController.h */,
-				D233D09316B4011B005212DE /* WTTableViewController.m */,
 				D233D07616B400EF005212DE /* Supporting Files */,
 			);
 			path = Weather;
@@ -149,6 +146,49 @@
 				D233D07D16B400EF005212DE /* Weather-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D50C6D831E42A2AD00FB6490 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				D50C6D841E42A2B400FB6490 /* Home */,
+				D50C6D851E42A2B900FB6490 /* Detail */,
+			);
+			name = Features;
+			sourceTree = "<group>";
+		};
+		D50C6D841E42A2B400FB6490 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D50C6D861E42A2C400FB6490 /* Controllers */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		D50C6D851E42A2B900FB6490 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				D50C6D871E42A2E600FB6490 /* Controllers */,
+			);
+			name = Detail;
+			sourceTree = "<group>";
+		};
+		D50C6D861E42A2C400FB6490 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D233D09216B4011B005212DE /* WTTableViewController.h */,
+				D233D09316B4011B005212DE /* WTTableViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D50C6D871E42A2E600FB6490 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D233D0CA16B405C3005212DE /* WeatherAnimationViewController.h */,
+				D233D0CB16B405C3005212DE /* WeatherAnimationViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		D53B01BD1E3C327500872AB4 /* Networking */ = {
