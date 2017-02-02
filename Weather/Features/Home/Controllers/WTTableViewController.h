@@ -9,10 +9,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FMNetworkingManager.h"
 #import "WeatherHTTPClient.h"
 
-@interface WTTableViewController : UITableViewController <FMNetworkingDelegate, NSXMLParserDelegate, CLLocationManagerDelegate, WeatherHTTPClientDelegate>
+@interface WTTableViewController : UITableViewController <NSXMLParserDelegate, CLLocationManagerDelegate, WeatherHTTPClientDelegate>
 
 // Actions
 - (IBAction)clear:(id)sender;

@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="22" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5cF-Kx-RpK" id="RD9-pj-DZh">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -32,21 +32,6 @@
                         </prototypes>
                     </tableView>
                     <toolbarItems>
-                        <barButtonItem title="JSON" id="JmA-Un-Ivm">
-                            <connections>
-                                <action selector="jsonTapped:" destination="G5u-H1-qn5" id="euR-c7-7Tw"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem title="PLIST" id="gVA-pI-Pfu">
-                            <connections>
-                                <action selector="plistTapped:" destination="G5u-H1-qn5" id="yeR-Tt-qnY"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem title="XML" id="6Rl-cl-TXK">
-                            <connections>
-                                <action selector="xmlTapped:" destination="G5u-H1-qn5" id="SFU-vD-Oug"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="74X-AA-jam"/>
                         <barButtonItem title="Client" id="mCo-ZF-Xyb">
                             <connections>

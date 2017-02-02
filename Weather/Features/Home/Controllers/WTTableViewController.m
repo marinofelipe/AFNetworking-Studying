@@ -23,8 +23,6 @@ static NSString * const xmlType       = @"xml";
 
 @property(strong) NSDictionary *weather;
 
-@property(nonatomic, strong) FMNetworkingManager *fmNetworkingManager;
-
 @property(nonatomic, strong) NSMutableDictionary *currentDictionary;
 @property(nonatomic, strong) NSMutableDictionary *xmlWeather;
 @property(nonatomic, strong) NSString *elementName;
@@ -50,9 +48,6 @@ static NSString * const xmlType       = @"xml";
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    
-    _fmNetworkingManager = [FMNetworkingManager new];
-    _fmNetworkingManager.delegate = self;
     
     _locationManager = [[CLLocationManager alloc] init];
     _locationManager.delegate = self;
@@ -92,30 +87,6 @@ static NSString * const xmlType       = @"xml";
     self.title = @"";
     self.weather = nil;
     [self.tableView reloadData];
-}
-
-- (IBAction)jsonTapped:(id)sender
-{
-    NSString *string = [NSString stringWithFormat:@"%@weather.php?format=%@", baseUrlString, jsonType];
-    NSURL *url = [NSURL URLWithString:string];
-    
-    [_fmNetworkingManager managerDoGetForUrl:url dataType:jsonType];
-}
-
-- (IBAction)plistTapped:(id)sender
-{
-    NSString *string = [NSString stringWithFormat:@"%@weather.php?format=%@", baseUrlString, plistType];
-    NSURL *url = [NSURL URLWithString:string];
-    
-    [_fmNetworkingManager managerDoGetForUrl:url dataType:plistType];
-}
-
-- (IBAction)xmlTapped:(id)sender
-{
-    NSString *string = [NSString stringWithFormat:@"%@weather.php?format=%@", baseUrlString, xmlType];
-    NSURL *url = [NSURL URLWithString:string];
-    
-    [_fmNetworkingManager managerDoGetReturningResponseAsXMLforUrl:url];
 }
 
 - (IBAction)clientTapped:(id)sender
