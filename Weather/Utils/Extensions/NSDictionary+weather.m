@@ -101,19 +101,23 @@
     return n;
 }
 
-- (NSString *)currentWeatherDescription
+- (NSString *)weatherDescriptionForRow:(NSUInteger)row
 {
-    NSArray *ar = self[@"weatherDesc"];
-    NSDictionary *dict = ar[0];
-    return dict[@"value"];
-}
-
-- (NSString *)upcomingWeatherDescription
-{
-    NSArray *hourly = self[@"hourly"];
-    NSDictionary *hr = hourly[0];
-    NSArray *ar = hr[@"weatherDesc"];
-    NSDictionary *dict = ar[0];
+    NSDictionary *dict;
+    
+    //current weather
+    if (row == 0) {
+        NSArray *ar = self[@"weatherDesc"];
+        dict = ar[0];
+    }
+    //upcoming weather
+    else {
+        NSArray *hourly = self[@"hourly"];
+        NSDictionary *hr = hourly[0];
+        NSArray *ar = hr[@"weatherDesc"];
+        dict = ar[0];
+    }
+    
     return dict[@"value"];
 }
 

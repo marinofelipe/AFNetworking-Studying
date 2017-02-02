@@ -62,6 +62,8 @@ static NSString * const xmlType       = @"xml";
         
         WeatherAnimationViewController *wac = (WeatherAnimationViewController *)segue.destinationViewController;
         
+        wac.rowNumber = indexPath.row;
+        
         NSDictionary *w;
         switch (indexPath.section) {
             case 0: {
@@ -224,19 +226,19 @@ static NSString * const xmlType       = @"xml";
     switch (indexPath.section) {
         case 0 : {
             daysWeather = [self.weather currentCondition];
-            cell.textLabel.text = [daysWeather currentWeatherDescription];
             break;
         }
         case 1: {
             NSArray *upcomingweather = [self.weather upcomingWeather];
             daysWeather = upcomingweather[indexPath.row];
-            cell.textLabel.text = [daysWeather upcomingWeatherDescription];
             break;
         }
         default:
             break;
     }
 
+    cell.textLabel.text = [daysWeather weatherDescriptionForRow:indexPath.row];
+    
     [self loadImageWithUrl:daysWeather.weatherIconURL forCell:cell];
     
     return cell;
