@@ -9,7 +9,7 @@
 #import "WeatherHTTPClient.h"
 
 static NSString * const kWorldWeatherOnlineAPIKey = @"b6e116eed6bb4cdf822134901170102";
-static NSString * const kWorldWeatherOnlineURLString = @"http://api.worldweatheronline.com/free/v1/";
+static NSString * const kWorldWeatherOnlineURLString = @"http://api.worldweatheronline.com/premium/v1";
 
 @implementation WeatherHTTPClient
 
@@ -40,8 +40,8 @@ static NSString * const kWorldWeatherOnlineURLString = @"http://api.worldweather
 - (void)updateWeatherAtLocation:(CLLocation *)location forNumberOfDays:(NSUInteger)number
 {
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    parameters[@"number_of_days"] = @(number);
-    parameters[@"q"] = [NSString stringWithFormat:@"%f, %f", location.coordinate.latitude, location.coordinate.longitude];
+    parameters[@"num_of_days"] = @(number);
+    parameters[@"q"] = [NSString stringWithFormat:@"%f,%f", location.coordinate.latitude, location.coordinate.longitude];
     parameters[@"format"] = @"json";
     parameters[@"key"] = kWorldWeatherOnlineAPIKey;
     
