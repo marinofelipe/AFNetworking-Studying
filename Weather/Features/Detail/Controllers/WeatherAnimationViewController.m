@@ -9,6 +9,7 @@
 //
 
 #import "WeatherAnimationViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface WeatherAnimationViewController ()
 @property(nonatomic, strong) NSTimer *generator;
@@ -59,14 +60,24 @@
 
 - (IBAction)deleteBackgroundImage:(id)sender
 {
-    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Delete Image Section Incomplete" message:@"You have not completed this section of the tutorial" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [av show];
+    
 }
 
 - (IBAction)updateBackgroundImage:(id)sender
 {
-    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Update Image Section Incomplete" message:@"You have not completed this section of the tutorial" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [av show];
+    NSURL *url = [NSURL URLWithString:@"https://koenig-media.raywenderlich.com/uploads/2014/01/sunny-background.png"];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFImageResponseSerializer serializer];
+    
+    [manager GET:url.absoluteString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        _backgroundImageView.image = responseObject;
+        [self saveImage:responseObject withFilename:@"background.png"];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 - (void)saveImage:(UIImage *)image withFilename:(NSString *)filename
