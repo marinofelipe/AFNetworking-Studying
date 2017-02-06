@@ -60,7 +60,14 @@
 
 - (IBAction)deleteBackgroundImage:(id)sender
 {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *path = [[paths objectAtIndex:0]  stringByAppendingPathComponent:@"WeatherHTTPClientImages/"];
     
+    NSError *error = nil;
+    [[NSFileManager defaultManager] removeItemAtPath:path error:&error];
+    
+    NSString *desc = [self.weatherDictionary weatherDescriptionInSection:_sectionNumber];
+    [self start:desc];
 }
 
 - (IBAction)updateBackgroundImage:(id)sender
